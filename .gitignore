@@ -4,7 +4,8 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Aa]ssets/_Scenes*
-/[Aa]ssets/Animation[s]*
+/[Aa]ssets/Animation*
+/[Aa]ssets/Animations*
 /[Aa]ssets/AssetStore*
 /[Aa]ssets/AssetStoreTools*
 /[Aa]ssets/Audio*
