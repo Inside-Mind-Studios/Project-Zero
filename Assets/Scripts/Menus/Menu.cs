@@ -28,33 +28,34 @@ public class Menu : MonoBehaviour
 
     void LateUpdate()
 	{
-		Debug.Log ("TitleScene: " + titleScene + " " + "CreditsScene: " + creditsScene);
 		if (!titleScene && !creditsScene && Input.GetKeyDown(KeyCode.Escape))
 		{
 			if(game.isPaused ())
 			{
 				activeMenu.SetActive (false);
 				game.Resume ();
+                game.setCursor(false);
 			}
 			else
 			{
 				game.Pause ();
 				pauseMenu.SetActive (true);
 				activeMenu = pauseMenu;
+                game.setCursor(true);
 			}
         }
     }
 
     void OnLevelWasLoaded(int level)
     {
-        switch(level)
+        switch(SceneManagerHelper.ActiveSceneName)
         {
-			case 1:
+			case "Main":
 			{
 				titleMenuIsMain();
 				break;
 			}
-            case 3:
+            case "Credits":
             {
                 creditsScene = true;
                 break;
