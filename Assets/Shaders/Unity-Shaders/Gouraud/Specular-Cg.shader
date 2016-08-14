@@ -1,4 +1,6 @@
-﻿Shader "Custom/Unity-Shaders/Gouraud/5 - Specular-Cg" 
+﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/Unity-Shaders/Gouraud/5 - Specular-Cg" 
 {
 	Properties
 	{
@@ -35,7 +37,7 @@
 				OUT.HPosition = mul(UNITY_MATRIX_MVP, IN.Position);
 
 				// Transform normal from model-space to view-space
-				float3 normalVec = normalize(mul(IN.Normal, _World2Object).xyz);
+				float3 normalVec = normalize(mul(IN.Normal, unity_WorldToObject).xyz);
 
 				// Store normalized light vector.
 				float3 lightVec = normalize(_WorldSpaceLightPos0.xyz);

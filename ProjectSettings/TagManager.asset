@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainMenu
-  - New Tag
+  - SpawnPoints
+  - SplashScreenCam
   layers:
   - Default
   - TransparentFX

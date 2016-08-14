@@ -2,9 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SliderLabeledVal : MonoBehaviour 
+public class EntroSlider : MonoBehaviour 
 {
-	public Graphics graphic;
 	public Text text;
     public bool valueAsText;
     public string[] textValues;
@@ -27,10 +26,9 @@ public class SliderLabeledVal : MonoBehaviour
 		dislayValue ();
 	}
 		
-	public void changeValueStr()
+	public void changeValueStr()   
 	{
 		dislayValue ();
-		graphic.setQualityLevel (slider.value);
 	}
 
 	private void dislayValue()

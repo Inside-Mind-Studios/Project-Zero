@@ -1,4 +1,7 @@
-﻿Shader "Custom/Unity-Shaders/Phong/2 - Rim"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/Unity-Shaders/Phong/2 - Rim"
 {
 	Properties
 	{
@@ -45,8 +48,8 @@
 			{
 				vertexOutput o;
 
-				o.posWorld = mul(_Object2World, v.vertex);
-				o.normalDir = normalize(mul(float4(v.normal, 0.0), _World2Object).xyz);
+				o.posWorld = mul(unity_ObjectToWorld, v.vertex);
+				o.normalDir = normalize(mul(float4(v.normal, 0.0), unity_WorldToObject).xyz);
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 
 				return o;

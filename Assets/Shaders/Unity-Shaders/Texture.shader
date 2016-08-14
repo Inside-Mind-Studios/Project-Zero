@@ -1,4 +1,7 @@
-﻿Shader "Custom/Unity-Shaders/2 - Texture" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/Unity-Shaders/2 - Texture" {
 	Properties {
 		_Color ("Color Tint", Color) = (1,1,1,1)
 		_MainTex ("Diffuse Texture", 2D) = "white" {}
@@ -46,9 +49,9 @@
 			{
 				vertexOutput OUT;
 
-				OUT.posWorld = mul(_Object2World, IN.vertex);
+				OUT.posWorld = mul(unity_ObjectToWorld, IN.vertex);
 				OUT.pos = mul(UNITY_MATRIX_MVP, IN.vertex);
-				OUT.normalDir = normalize(mul(float4(IN.normal, 0.0), _World2Object).xyz);
+				OUT.normalDir = normalize(mul(float4(IN.normal, 0.0), unity_WorldToObject).xyz);
 				OUT.tex = IN.texcoord;
 
 				return OUT;
@@ -130,9 +133,9 @@
 			{
 				vertexOutput OUT;
 
-				OUT.posWorld = mul(_Object2World, IN.vertex);
+				OUT.posWorld = mul(unity_ObjectToWorld, IN.vertex);
 				OUT.pos = mul(UNITY_MATRIX_MVP, IN.vertex);
-				OUT.normalDir = normalize(mul(float4(IN.normal, 0.0), _World2Object).xyz);
+				OUT.normalDir = normalize(mul(float4(IN.normal, 0.0), unity_WorldToObject).xyz);
 				OUT.tex = IN.texcoord;
 
 				return OUT;

@@ -1,4 +1,7 @@
-﻿Shader "Custom/Unity-Shaders/Gouraud/4 - Specular"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/Unity-Shaders/Gouraud/4 - Specular"
 {
 	Properties
 	{
@@ -41,8 +44,8 @@
 				vertexOutput o;
 
 				//vectors
-				float3 normalDir = normalize(mul(float4(v.normal, 0.0), _World2Object).xyz);
-				float3 viewDir = normalize(float3(float4(_WorldSpaceCameraPos.xyz, 1.0) - mul(_Object2World, v.vertex).xyz));
+				float3 normalDir = normalize(mul(float4(v.normal, 0.0), unity_WorldToObject).xyz);
+				float3 viewDir = normalize(float3(float4(_WorldSpaceCameraPos.xyz, 1.0) - mul(unity_ObjectToWorld, v.vertex).xyz));
 				float3 lightDir;
 				float atten = 1.0;
 

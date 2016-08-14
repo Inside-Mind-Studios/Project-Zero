@@ -1,4 +1,7 @@
-﻿Shader "Custom/Unity-Shaders/3 - Normals" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/Unity-Shaders/3 - Normals" {
 	Properties{
 		_Color("Color Tint", Color) = (1,1,1,1)
 		_MainTex("Diffuse Texture", 2D) = "white" {}
@@ -53,11 +56,11 @@
 			{
 				vertexOutput OUT;
 
-				OUT.normalWorld = normalize(mul(float4(IN.normal, 0.0), _World2Object).xyz);
-				OUT.tangentWorld = normalize(mul(_Object2World, IN.tangent).xyz);
+				OUT.normalWorld = normalize(mul(float4(IN.normal, 0.0), unity_WorldToObject).xyz);
+				OUT.tangentWorld = normalize(mul(unity_ObjectToWorld, IN.tangent).xyz);
 				OUT.binormalWorld = normalize(cross(OUT.normalWorld, OUT.tangentWorld) * IN.tangent.w);
 
-				OUT.posWorld = mul(_Object2World, IN.vertex);
+				OUT.posWorld = mul(unity_ObjectToWorld, IN.vertex);
 				OUT.pos = mul(UNITY_MATRIX_MVP, IN.vertex);
 				OUT.tex = IN.texcoord;
 
@@ -162,11 +165,11 @@
 			{
 				vertexOutput OUT;
 
-				OUT.normalWorld = normalize(mul(float4(IN.normal, 0.0), _World2Object).xyz);
-				OUT.tangentWorld = normalize(mul(_Object2World, IN.tangent).xyz);
+				OUT.normalWorld = normalize(mul(float4(IN.normal, 0.0), unity_WorldToObject).xyz);
+				OUT.tangentWorld = normalize(mul(unity_ObjectToWorld, IN.tangent).xyz);
 				OUT.binormalWorld = normalize(cross(OUT.normalWorld, OUT.tangentWorld) * IN.tangent.w);
 
-				OUT.posWorld = mul(_Object2World, IN.vertex);
+				OUT.posWorld = mul(unity_ObjectToWorld, IN.vertex);
 				OUT.pos = mul(UNITY_MATRIX_MVP, IN.vertex);
 				OUT.tex = IN.texcoord;
 

@@ -1,4 +1,6 @@
-﻿Shader "Custom/Unity-Shaders/Gouraud/3 - Ambient"
+﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom/Unity-Shaders/Gouraud/3 - Ambient"
 {
 	Properties
 	{
@@ -35,7 +37,7 @@
 	{
 		vertexOutput o;
 
-		float3 normalDir = normalize(mul(float4(v.normal, 1.0), _World2Object).xyz);
+		float3 normalDir = normalize(mul(float4(v.normal, 1.0), unity_WorldToObject).xyz);
 		float3 lightDir;
 		float atten = 1.0;
 

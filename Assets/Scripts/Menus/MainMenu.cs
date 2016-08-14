@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using EntroMinds.Managers;
 
 public class MainMenu : MonoBehaviour
 {

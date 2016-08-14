@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using EntroMinds.Managers;
 
 public class Menu : MonoBehaviour
 {
